@@ -1,0 +1,16 @@
+---
+# Copyright (c) Jupyter Development Team.
+# Distributed under the terms of the Modified BSD License.
+services:
+  notebook:
+    build: .
+    image: jupyter
+    restart: unless-stopped
+    container_name: jupyter
+    volumes:
+      - "/home/jason/service/jupyter/work:/home/jovyan/work"
+    ports:
+      - target: 8888
+        published: 6800
+        protocol: tcp
+        mode: host
